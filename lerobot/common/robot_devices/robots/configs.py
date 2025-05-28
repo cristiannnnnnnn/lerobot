@@ -15,7 +15,8 @@
 import abc
 from dataclasses import dataclass, field
 from typing import Sequence
-
+import os
+from dotenv import load_dotenv
 import draccus
 
 from lerobot.common.robot_devices.cameras.configs import (
@@ -439,11 +440,11 @@ class So101RobotConfig(ManipulatorRobotConfig):
     # Set this to a positive scalar to have the same value for all motors, or a list that is the same length as
     # the number of motors in your follower arms.
     max_relative_target: int | None = None
-
+    load_dotenv()
     leader_arms: dict[str, MotorsBusConfig] = field(
         default_factory=lambda: {
             "main": FeetechMotorsBusConfig(
-                port="/dev/tty.usbmodem59710814551", #leader
+                port=os.getenv('LEADER_PORT'), #leader
                 motors={
                     # name: (index, model)
                     "shoulder_pan": [1, "sts3215"],
@@ -460,7 +461,7 @@ class So101RobotConfig(ManipulatorRobotConfig):
     follower_arms: dict[str, MotorsBusConfig] = field(
         default_factory=lambda: {
             "main": FeetechMotorsBusConfig(
-                port="/dev/tty.usbmodem59700736791", #follower
+                port=os.getenv('FOLLOWER_PORT'), #follower
                 motors={
                     # name: (index, model)
                     "shoulder_pan": [1, "sts3215"],
