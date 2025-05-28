@@ -476,15 +476,15 @@ class So101RobotConfig(ManipulatorRobotConfig):
 
     cameras: dict[str, CameraConfig] = field(
         default_factory=lambda: {
-            "laptop": OpenCVCameraConfig(
+            "usb1": OpenCVCameraConfig(
                 camera_index=0,
-                fps=30,
+                fps=25,
                 width=640,
                 height=480,
             ),
-            "phone": OpenCVCameraConfig(
-                camera_index=1,
-                fps=30,
+            "laptop": OpenCVCameraConfig(
+                camera_index=2,
+                fps=25,
                 width=640,
                 height=480,
             ),
@@ -539,17 +539,11 @@ class So100RobotConfig(ManipulatorRobotConfig):
 
     cameras: dict[str, CameraConfig] = field(
         default_factory=lambda: {
-            "laptop": OpenCVCameraConfig(
+            "usb1": OpenCVCameraConfig(
                 camera_index=0,
-                fps=30,
-                width=640,
-                height=480,
-            ),
-            "phone": OpenCVCameraConfig(
-                camera_index=1,
-                fps=30,
-                width=640,
-                height=480,
+                fps=25,
+                width=1920,
+                height=1080,
             ),
         }
     )
