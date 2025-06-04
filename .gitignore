@@ -19,7 +19,7 @@ wandb
 
 # Data
 data
-outputs
+outputs/images_from_opencv_cameras
 
 # Apple
 .DS_Store
