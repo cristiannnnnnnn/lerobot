@@ -478,13 +478,13 @@ class So101RobotConfig(ManipulatorRobotConfig):
     cameras: dict[str, CameraConfig] = field(
         default_factory=lambda: {
             "usb1": OpenCVCameraConfig(
-                camera_index=0,
+                camera_index=os.getenv('USBCAM1_INDEX'),
                 fps=25,
                 width=640,
                 height=480,
             ),
             "usb2": OpenCVCameraConfig(
-                camera_index=1,
+                camera_index=os.getenv('USBCAM2_INDEX'),
                 fps=25,
                 width=640,
                 height=480,
