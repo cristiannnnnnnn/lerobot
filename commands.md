@@ -39,12 +39,12 @@ python lerobot/scripts/control_robot.py \
   --robot.type=so101 \
   --control.type=record \
   --control.fps=30 \
-  --control.single_task="Move from A to B to resting position" \
+  --control.single_task="Grasp a lego block and put it in the bin." \
   --control.repo_id=${HF_USER}/eval_act_so101_test001 \
-  --control.tags='["so101","test"]' \
+  --control.tags='["tutorial"]' \
   --control.warmup_time_s=5 \
   --control.episode_time_s=30 \
-  --control.reset_time_s=10 \
+  --control.reset_time_s=30 \
   --control.num_episodes=10 \
   --control.push_to_hub=true \
-  --control.policy.path=outputs/train/act_so101_test001/checkpoints/last/pretrained_model
+  --control.policy.path=outputs/train/act_so101_test001/checkpoints/100000/pretrained_model
